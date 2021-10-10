@@ -1,0 +1,92 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<h4>Create Task</h4>
+
+<br>
+<style>
+    .container {
+        margin-left: 240px;
+    }
+
+    .formIndexx {
+        margin-left: 240px;
+
+    }
+</style>
+
+{% if assignments|length < 1 %} <span>
+    <h6 class="formIndexx">No student has yet submitted any assignments.</h6></span>
+    {% else %}
+    {% if user.is_authenticated %}
+
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-11 col-md-11 col-sm-11">
+                <i class="fas fa-address-book fa-xl ">
+                    <h4 class="ml-4">Create New Assignment</h4>
+                </i>
+                <form action="teacher/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <textarea name="task" style="width: 90%;" cols="50" rows="4"></textarea><br>
+                    <button type="submit" class="btn btn-primary m-3">Submit</button>
+                </form>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Std username</th>
+                            <th>Assignment Name</th>\
+                            <th>Assignment Date</th>
+                            <th>Plagirism %</th>
+                            <th>Plagirism Report</th>
+                            <th>Marks Obtained</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for assignment in assignments %}
+                        <tr>
+                            <td>@{{assignment.submitted_by}}</td>
+                            <td>@{{assignment.submission_file}}</td>
+                            <td>21-01-2021</td>
+                            <td>
+                                <a href="{% url 'check_plagirism' %}">check %</a>
+                            </td>
+                            <td><a href="">download</a></td>
+                            <td>41.00</td>
+                        </tr>
+                        {% endfor %}
+
+
+
+                    </tbody>
+                </table>
+
+
+                {% for assignment in asssignments %}
+
+                <a href="{{ assignment.submission_file.url}}" download>{{assignment.submission_file}} </a><br>
+
+                <h4>{{assignment.submitted_by}}</h4><br>
+                <a href="#">Check Plagirism Report</a><br>
+                <h4>Plagirism % : </h4> <br>
+                <input type="number" placeholder="Give marks">
+                <input type="submit">
+                <hr>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    {% endif %}
+    {% endif %}
+
+
+
+
+    {% endblock %}

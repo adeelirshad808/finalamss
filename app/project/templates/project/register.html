@@ -1,0 +1,49 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+<style>
+    .formReg {
+        margin-left: 240px !important;
+    }
+
+    .container {
+        background-color: rgb(46, 43, 43);
+    }
+</style>
+
+{% if registered %}
+<div class="container formIndex ">
+    <div class="row ">
+        <div class="col-lg-11 col-md-11 col-sm-11 col-11 formReg text-white ">
+
+            Thankyou for registering<br>
+            click here to login <a class="btn btn-primary btn-sm" href="{%url 'user_login'%}">Login</a>
+        </div>
+    </div>
+</div>
+{% else %}
+
+<div class="container-fluid  ">
+    <div class="row">
+        <div class="col-lg-8 co-md-8 col-sm-8 col-8 mt-5">
+
+            <form class="formReg" class="mt-5" method="POST">
+                <h3><span class=""><i class="fas fa-sign-in-alt fa-sm ">Registration</i></span></h3>
+                </span>
+
+                {% csrf_token %}
+
+
+
+                {{user_form.as_p}}
+
+                <input type="submit" value="Register" class="btn btn-primary">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+<style>
+    .formIndex {
+        margin-left: 250px;
+
+    }
+
+    .bg-success {
+        background-color: rgb(134, 218, 134) !important;
+        border-radius: 4px;
+        padding: 3px;
+        font-size: 13px;
+
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .bg-dim {
+
+        background-color: rgb(46, 43, 43);
+    }
+
+    .alert {
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+{% if assignments|length < 1 %} <span>
+    <h6 class="formIndex">You Teacher haven't created any assignment yet, Please come back
+        Later!</h6></span>
+    {% else %}
+    {% if user.is_authenticated %}
+
+
+    <div class="container formIndex">
+        <div class="row">
+            <div class="col-lg-11 col-md-8 col-sm-8 col-8">
+
+
+                <table class="table  mt-4 border">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Assignment no</th>
+                            <th scope="col"> Date</th>
+                            <th scope="col"> Teacher's name</th>
+                            <th scope="col"> Title</th>
+                            <th scope="col"> Upload</th>
+                            <th scope="col"> Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for assignment in assignments%}
+                        <tr>
+                            <td>1</td>
+                            <td>{{assignment.assignment_date}}</td>
+                            <td>{{assignment.assignment_creator}}</td>
+                            <td>{{assignment.assignment_title}} </td>
+                            <td><input type="file" name="" id="" placeholder="upload"></td>
+                            <td> <span class="bg-success text-white">Pending </span></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="container formIndex ">
+        <div class="row">
+            <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                <div class="jumbotron mt-3 bg-dim text-white">
+                    <ul>
+                        <li>Create Assignments</li>
+                        <li>Submit Assignments</li>
+                        <li>Check Assignments Status</li>
+                        <li>Check Plagiarism in Assignments</li>
+                        <li>Generate Plagiarism Report </li>
+                        <li>View Marks </li>
+                    </ul>
+                    <p>To use this Assignment Mangement System, please login first and if you dont have account then
+                        please register first !</p>
+
+                    <a class="btn btn-primary btn-sm" href="{%url 'user_login'%}">Login</a>
+                    <a class="btn btn-primary btn-sm" href="{%url 'register'%}">Register</a>
+                    <br><br>
+                    &#x26A0; We assure you all the data you share is save with us and we won't share with any third
+                    party.
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+
+    {% endblock %}
