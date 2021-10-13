@@ -29,18 +29,18 @@
         margin-top: 10px;
     }
 </style>
-{% if assignments|length < 1 %} <span>
+{% if assignments|length < 0 %} <span>
     <h6 class="formIndex">You Teacher haven't created any assignment yet, Please come back
         Later!</h6></span>
     {% else %}
+
     {% if user.is_authenticated %}
+    {% if is_registerred %}
 
 
     <div class="container formIndex">
         <div class="row">
             <div class="col-lg-11 col-md-8 col-sm-8 col-8">
-
-
                 <table class="table  mt-4 border">
                     <thead class="thead-dark">
                         <tr>
@@ -97,6 +97,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     {% endif %}
     {% endif %}
 

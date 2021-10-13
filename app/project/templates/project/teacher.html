@@ -16,7 +16,7 @@
     }
 </style>
 
-{% if assignments|length < 1 %} <span>
+{% if assignments|length == 0 %} <span>
     <h6 class="formIndexx">No student has yet submitted any assignments.</h6></span>
     {% else %}
     {% if user.is_authenticated %}
@@ -38,7 +38,7 @@
                     <thead>
                         <tr>
                             <th>Std username</th>
-                            <th>Assignment Name</th>\
+                            <th>Assignment Name</th>
                             <th>Assignment Date</th>
                             <th>Plagirism %</th>
                             <th>Plagirism Report</th>
@@ -52,7 +52,10 @@
                             <td>@{{assignment.submission_file}}</td>
                             <td>21-01-2021</td>
                             <td>
-                                <a href="{% url 'check_plagirism' %}">check %</a>
+                                <form method="POST" action="{% url 'check_plagirism' %}">
+                                    {% csrf_token %}
+                                    <input type="submit" name="checkPlagirism" value="{{assignment.submission_file}}">
+                                </form>
                             </td>
                             <td><a href="">download</a></td>
                             <td>41.00</td>
@@ -70,7 +73,7 @@
                 <a href="{{ assignment.submission_file.url}}" download>{{assignment.submission_file}} </a><br>
 
                 <h4>{{assignment.submitted_by}}</h4><br>
-                <a href="#">Check Plagirism Report</a><br>
+                <a href="">Check Plagirism Report</a><br>
                 <h4>Plagirism % : </h4> <br>
                 <input type="number" placeholder="Give marks">
                 <input type="submit">

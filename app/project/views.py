@@ -14,56 +14,67 @@ from project.forms import UserRegisterationForm
 from django.http import HttpResponse, HttpResponseRedirect
 
 
-
-
 def index(request):
-    students = Student.objects.all()
     teachers = Teacher.objects.all()
     loggedin_user = request.user
+    is_registerred = False
     assignments = Assignment.objects.all()
-    submissions = Submissions.objects.all()
-    print('user', request.user)
-    print('user', request.user.is_anonymous)
-    if request.user.is_anonymous == True:
-        # for st in students:
-        #     if str(st) == str(request.user.username):
-        #         print('student', (request.user.username))
-        #         for assignment in assignments:
-        #             print('assignments', assignments)
-        #         return render(request, 'project/index.html',
-        #                       {'assignments': assignments})
-        #     else:
-        #         print('not student running', (request.user.username))
-        #         return render(request, 'project/not_registered.html',
-        #                       {'loggedin_user': loggedin_user})
+    students = Student.objects.all()
+    if request.user.is_authenticated:
+        s = Student.objects.filter(student_username=loggedin_user).exists()
+        t = Teacher.objects.filter(teacher_username=loggedin_user).exists()
+        print(s)
+        print(t)
 
-        for teacher in teachers:
-            if str(teacher) == str(request.user.username):
-                print('teacherssssss', (request.user.username))
-                return render(request, 'project/teacher.html',
-                              {'assignments': assignments})
-            else:
-                print('not teacher', (request.user.username))
-                return render(request, 'project/not_registered.html',
-                              {'loggedin_user': loggedin_user})
+        print('user', request.user.is_authenticated)
+        if s == True:
+            print(s)
+            is_registerred = True
+            print('inside s assignment page')
+            return render(request, 'project/assignmentspage.html',
+                          {'assignments': assignments})
+        if s == False and t == False:
+            print(t)
 
+            print('inside s not registererd runnning')
+            return render(request, 'project/not_registered.html',
+                          {'loggedin_user': loggedin_user})
+        if t:
+            print('running 3')
+            is_registerred = True
+            assignments = Submissions.objects.all()
+            for assignment in assignments:
+                print('assignments', assignments)
+                return render(request, 'project/teacher.html', {'assignments': assignments})
     else:
-        return render(request, 'project/index.html')
+        print('running 2')
+        return render(request, 'project/home.html', {'is_registerred': is_registerred})
 
 
 def teacher(request):
+    print('running')
     if request.method == "POST":
         task = request.POST.get('task')
-        teacher_instance = Teacher.objects.get(teacher_name=request.user)
+        teacher_instance = Teacher.objects.get(teacher_username=request.user)
         task = Assignment.objects.create(assignment_creator=teacher_instance,
                                          assignment_details=task)
         print(task)
         task.save()
         return HttpResponse('task created')
+
     else:
         all_assignments = Submissions.objects.all()
-        for sub in all_assignments:
-            print(sub.submission_file)
+        # print(all_assignments)
+        # text1 = []
+        # for sub1 in all_assignments:
+        #     text1.append(open(f'./media/{sub1.submission_file}', 'rb').read())
+
+        # for sub in all_assignments:
+        #     print(sub.submission_file)
+        #     text = open(f'./media/{sub.submission_file}', 'rb').read()
+        # print(text1)
+
+        # print(difflib.SequenceMatcher(None, text, text1).ratio()*100)
 
         return render(request, 'project/teacher.html',
                       {'assignments': all_assignments})
@@ -74,6 +85,7 @@ def assignment(request):
     if request.method == "POST":
 
         uploaded_file = request.FILES['inputFile']
+        print(uploaded_file)
         student = Student.objects.get(student_name=request.user)
         std_instance = student
         document = Submissions.objects.create(submitted_by=std_instance,
@@ -122,12 +134,30 @@ def user_login(request):
         return render(request, 'project/login.html')
 
 
-@login_required
+@ login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
 
 def check_plagirism(request):
+    all_assignments = Submissions.objects.all()
+    # print(all_assignments)
+    text1 = []
+    # for sub1 in all_assignments:
+    #     text1.append(open(f'./media/{sub1.submission_file}', 'rb').read())
 
-    return HttpResponseRedirect(reverse('check_plagirism'))
+    for sub in all_assignments:
+        print(sub.submission_file)
+        text = open(f'./media/{sub.submission_file}', 'rb').read()
+    print(text1)
+
+    # print(difflib.SequenceMatcher(None, text, text1).ratio()*100)
+
+    print('runninggggg')
+    if request.method == "POST":
+        file = request.POST.get('checkPlagirism')
+        print('jjj')
+        print('print', file)
+
+    return render(request, 'project/check_plagirism.html')
