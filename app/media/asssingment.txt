@@ -1,0 +1,3 @@
+It is also the most successful of hundreds of attempts to create virtual money through the use of cryptography, the science of making and breaking codes. Bitcoin has inspired hundreds of imitators, but it remains the largest cryptocurrency by market capitalization, a distinction it has held throughout its decade-plus history.
+
+(A general note: According to the Bitcoin Foundation, the word "Bitcoin" is capitalized when it refers to the cryptocurrency as an entity, and it is given as "bitcoin" when it refers to a quantity of the currency or the units themselves. Bitcoin is also abbreviated as BTC. Throughout this article, we will alternate between these usages.)

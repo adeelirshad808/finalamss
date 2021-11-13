@@ -2,10 +2,20 @@
 
 {% block content %}
 
-<h4>Create Task</h4>
+<!-- <h4>Create Task</h4> -->
 
 <br>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        background-color: rgb(249, 245, 245);
+    }
+
     .container {
         margin-left: 240px;
     }
@@ -14,78 +24,181 @@
         margin-left: 240px;
 
     }
+
+    .navAss {
+        width: 100vw;
+
+    }
+
+    .ulAss {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+    }
+
+    .liAss {
+        list-style-type: none;
+        margin: 0 2vw;
+    }
+
+    .btn-color {
+        background-color: #2baa73 !important;
+        color: #fff;
+        margin-left: 110px;
+        padding: 15px;
+    }
+
+    .btn-color:hover {
+        background-color: #b37272 !important;
+        color: #fff;
+
+
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+
+
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+
+
+    .navLink {
+        text-decoration: none;
+    }
+
+    i {
+        margin-left: 4px;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    table {
+        background-color: #fff;
+    }
 </style>
 
-{% if assignments|length == 0 %} <span>
-    <h6 class="formIndexx">No student has yet submitted any assignments.</h6></span>
+{% if assignments|length < 1 %} <span>
+    <div class="container">
+        <a href="{% url 'teacher_all_assignments' %}">
+            <button class="btn mt-2 mb-5 btn-color-btn">&rarr;Your All Assignments</button>
+        </a>
+    </div>
+    <h3 class="container ">No student has yet submitted any assignments.</h3>
+    </span>
     {% else %}
     {% if user.is_authenticated %}
 
+
+
+
     <div class="container ">
+        <div class="navAss">
+            <ul class="ulAss">
+                <li class="liAss">
+                    <a class="navLink btn btn-color  mb-5" href="{% url 'teacher_all_assignments' %}">Your Created
+                        Assignments</a>
+                </li>
+                <li class="liAss">
+                    <a class="navLink btn btn-color mb-5" href="">Students Uploaded Assignments</a>
+                </li>
+                <li class="liAss">
+                    <a class="navLink btn btn-color mb-5" href="{%url 'create_assignment'%}">Create New
+                        Assignment<i class="fas fa-plus"></i></a>
+                </li>
+            </ul>
+        </div>
         <div class="row">
-            <div class="col-lg-11 col-md-11 col-sm-11">
-                <i class="fas fa-address-book fa-xl ">
-                    <h4 class="ml-4">Create New Assignment</h4>
-                </i>
-                <form action="teacher/" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="">
 
-                    <textarea name="task" style="width: 90%;" cols="50" rows="4"></textarea><br>
-                    <button type="submit" class="btn btn-primary m-3">Submit</button>
-                </form>
+                    <table class="table   ml-5">
+                        <thead>
+                            <tr class="btn-color_table">
+                                <th>Std Username</th>
+                                <th>Assignment Name</th>
+                                <th>Assignment Date</th>
+                                <th>Assignment text</th>
+                                <th>Class Plagirism Report</th>
+                                <th>Online Plagirism Report</th>
+                                <th>Marks Obtained</th>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Std username</th>
-                            <th>Assignment Name</th>
-                            <th>Assignment Date</th>
-                            <th>Plagirism %</th>
-                            <th>Plagirism Report</th>
-                            <th>Marks Obtained</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for assignment in assignments %}
-                        <tr>
-                            <td>@{{assignment.submitted_by}}</td>
-                            <td>@{{assignment.submission_file}}</td>
-                            <td>21-01-2021</td>
-                            <td>
-                                <form method="POST" action="{% url 'check_plagirism' %}">
-                                    {% csrf_token %}
-                                    <input type="submit" name="checkPlagirism" value="{{assignment.submission_file}}">
-                                </form>
-                            </td>
-                            <td><a href="">download</a></td>
-                            <td>41.00</td>
-                        </tr>
-                        {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for assignment in assignments %}
+                            <tr>
+                                <td>@{{assignment.submitted_by}}</td>
+                                <td>@{{assignment.submission_file}}</td>
+                                <td>21-01-2021</td>
+                                <td>
+                                    <form method="POST" action="{% url 'readfile' %}">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn-color-btn" name="readfile"
+                                            value="{{assignment.submission_file}}">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="POST" action="{% url 'check_plagirism' %}">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn-color-btn" name="checkPlagirism"
+                                            value="{{assignment.submission_file}}">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="POST" action="{% url 'online_plagirism' %}">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn-color-btn" name="online_plagirism"
+                                            value="{{assignment.submission_file}}">
+                                    </form>
+                                </td>
+                                <td>
+
+                                    <form method="POST" action="{% url 'marks' %}">
+                                        {% csrf_token %}
+
+                                        <button type="submit"> Marks</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
 
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
 
 
-                {% for assignment in asssignments %}
 
-                <a href="{{ assignment.submission_file.url}}" download>{{assignment.submission_file}} </a><br>
-
-                <h4>{{assignment.submitted_by}}</h4><br>
-                <a href="">Check Plagirism Report</a><br>
-                <h4>Plagirism % : </h4> <br>
-                <input type="number" placeholder="Give marks">
-                <input type="submit">
-                <hr>
-                {% endfor %}
 
             </div>
         </div>
     </div>
 
     <br>
-    <hr>
     {% endif %}
     {% endif %}
 

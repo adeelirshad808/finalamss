@@ -14,14 +14,23 @@
 </head>
 {% block style %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
     .sidebar-container {
         position: fixed;
         width: 220px;
-        height: 100%;
+        height: 80vh;
         left: 0;
+        margin-left: 30px;
+        margin-top: 20px;
+        border-radius: 4px;
         overflow-x: hidden;
         overflow-y: auto;
-        background: #1a1a1a;
+        background: #b37272;
         color: #fff;
     }
 
@@ -32,7 +41,7 @@
     .sidebar-logo {
         padding: 10px 15px 10px 30px;
         font-size: 20px;
-        background-color: #2574A9;
+        background-color: #2baa73;
     }
 
     .sidebar-navigation {
@@ -68,7 +77,7 @@
     }
 
     .sidebar-navigation li::before {
-        background-color: #2574A9;
+        background-color: #2baa73;
         position: absolute;
         content: '';
         height: 100%;
@@ -87,7 +96,7 @@
     .sidebar-navigation .header {
         font-size: 12px;
         text-transform: uppercase;
-        background-color: #151515;
+        background-color: #b37272;
         padding: 10px 15px 10px 30px;
     }
 
@@ -101,7 +110,7 @@
 
     .navbar {
         display: none !important;
-        background-color: #f4f3ee !important;
+        background-color: #b37272 !important;
     }
 
     .bgImage {
@@ -141,10 +150,21 @@
                     <i class="fa fa-home" aria-hidden="true"></i> Homepage
                 </a>
             </li>
+            <li>
+                <a href="{%url 'index'%}">
+                    <i class="fas fa-address-card pr-3" aria-hidden="true"></i> About
+                </a>
+            </li>
+            <li>
+                <a href="{%url 'index'%}">
+                    <i class="fas fa-file-contract pr-3" aria-hidden="true"></i> Contact
+                </a>
+            </li>
+            <hr>
             {% if user.is_authenticated %}
             <li>
                 <a href="#">
-                    <i class="fa fa-users" aria-hidden="true"></i> {{ request.user }}
+                    <i class="fa fa-user" aria-hidden="true"></i> {{ request.user }}
                 </a>
             </li>
 
@@ -175,6 +195,8 @@
 
 
     {% block content %}
+
+
 
 
     {% endblock %}

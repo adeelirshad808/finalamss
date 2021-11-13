@@ -3,21 +3,40 @@
 {% block content %}
 <style>
     .formReg {
-        margin-left: 240px !important;
+        box-shadow: 10px 0px 11px -2px rgba(0, 0, 0, 0.61);
+        -webkit-box-shadow: 10px 0px 11px -2px rgba(0, 0, 0, 0.61);
+        -moz-box-shadow: 10px 0px 11px -2px rgba(0, 0, 0, 0.61);
+        margin-left: 390px !important;
     }
 
     .container {
-        background-color: rgb(46, 43, 43);
+        margin-left: 290px !important;
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
     }
 </style>
 
 {% if registered %}
-<div class="container formIndex ">
+<div class="container formIndex   ">
     <div class="row ">
-        <div class="col-lg-11 col-md-11 col-sm-11 col-11 formReg text-white ">
-
-            Thankyou for registering<br>
-            click here to login <a class="btn btn-primary btn-sm" href="{%url 'user_login'%}">Login</a>
+        <div class="col-lg-11 col-md-11 col-sm-11 col-11  p-4 ">
+            <h3 class="mt-5 "> Thankyou for registering<h3>
+                    Click below to login</h6> <br>
+                    <br><a class="btn btn-color-btn btn-sm" href="{%url 'user_login'%}">Login</a>
         </div>
     </div>
 </div>
@@ -25,18 +44,13 @@
 
 <div class="container-fluid  ">
     <div class="row">
-        <div class="col-lg-8 co-md-8 col-sm-8 col-8 mt-5">
+        <div class="col-lg-8 co-md-8 col-sm-8 col-8 mt-5 ">
 
-            <form class="formReg" class="mt-5" method="POST">
+            <form class="formReg  p-5  " class="mt-5" method="POST">
                 <h3><span class=""><i class="fas fa-sign-in-alt fa-sm ">Registration</i></span></h3>
                 </span>
-
                 {% csrf_token %}
-
-
-
                 {{user_form.as_p}}
-
                 <input type="submit" value="Register" class="btn btn-primary">
             </form>
 

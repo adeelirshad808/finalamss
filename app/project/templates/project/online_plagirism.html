@@ -1,0 +1,103 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<style>
+    .container {
+        margin-left: 240px;
+    }
+
+    .formIndexx {
+        margin-left: 240px;
+
+    }
+
+    .containerr {
+        display: flex;
+        margin: 0px;
+
+    }
+
+    ul {
+        list-style: square;
+    }
+
+    .shadoww {
+        box-shadow: 17px 6px 23px -12px rgba(0, 0, 0, 0.73);
+        -webkit-box-shadow: 17px 6px 23px -12px rgba(0, 0, 0, 0.73);
+        -moz-box-shadow: 17px 6px 23px -12px rgba(0, 0, 0, 0.73);
+    }
+
+    .btn-color {
+        background-color: #2baa73 !important;
+        color: #fff;
+        margin-left: 110px;
+        padding: 15px;
+    }
+
+    .btn-color:hover {
+        background-color: #b37272 !important;
+        color: #fff;
+
+
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+    span {
+        font-size: 22px;
+    }
+</style>
+
+
+<div class="container  ">
+    <div class="row">
+        <a href="{%url 'teacher'%}">
+            <button class="btn  btn-color mt-5 mb-5">&larr; Back To Home</button>
+        </a>
+        {% for item1, item2 in mylist %}
+
+
+
+        {% endfor %}
+
+        <div class="col lg-10 col-md-10 col-sm-10 col-10 ">
+            <div class="card mt-3 ml-5">
+                <div class="card-body">
+                    <h3 class="card-title"> <span class="text-danger">
+                            <h3 class="card-title  text-danger"> Total Plagirism : <span class="text-danger">
+                                    {{plagPercent}} %
+                                </span><br>
+                                <h3 class="text-success">Unique Percentage : <span
+                                        class="text-success">{{uniquePercent}}%</span> </h3>
+                                <h3 class="text-warning">Paraphrase Percentage : <span
+                                        class="text-warning">{{paraphrasePercent}}%</span>
+                                </h3>
+
+                                </h5><br>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <h2>Copied Sources</h2>
+                                    {% for source in sources %}
+                                    <h5 class="text-primary"> <a href="{{source.link}}">Link : {{source.link}} </a></h5>
+                                    </h5 class="text-success">Count : {{source.count}}</h5><br>
+                                    </h5 class="text-danger">Percent from above source : {{source.percent}} %</h5><br>
+                                    <br>
+                                    {% endfor %}
+
+
+                                </h6>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

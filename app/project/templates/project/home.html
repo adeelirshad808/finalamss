@@ -7,6 +7,10 @@
 
     }
 
+    li {
+        font-size: 20px;
+    }
+
     .bg-success {
         background-color: rgb(134, 218, 134) !important;
         border-radius: 4px;
@@ -21,12 +25,28 @@
 
     .bg-dim {
 
-        background-color: rgb(46, 43, 43);
+        background-color: #b37272;
     }
 
     .alert {
         text-align: center;
         margin-top: 10px;
+    }
+
+    .btn-color-btn {
+        background-color: #2baa73 !important;
+        color: #fff;
+        border: 2px solid #2baa73;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+    .btn-color-btn:hover {
+        background-color: #b34d4d !important;
+        border: 2px solid #b34d4d;
+        color: #fff;
+
     }
 </style>
 
@@ -39,6 +59,7 @@
         <div class="col-lg-11 col-md-11 col-sm-11 col-11">
             <div class="jumbotron mt-3 bg-dim text-white">
                 <ul>
+                    <h3>Features</h3>
                     <li>Create Assignments</li>
                     <li>Submit Assignments</li>
                     <li>Check Assignments Status</li>
@@ -49,10 +70,10 @@
                 <p>To use this Assignment Mangement System, please login first and if you dont have account then
                     please register first !</p>
 
-                <a class="btn btn-primary btn-sm" href="{%url 'user_login'%}">Login</a>
-                <a class="btn btn-primary btn-sm" href="{%url 'register'%}">Register</a>
+                <a class="btn btn-color-btn btn-sm" href="{%url 'user_login'%}">Login</a>
+                <a class="btn btn-color-btn btn-sm" href="{%url 'register'%}">Register</a>
                 <br><br>
-                &#x26A0; We assure you all the data you share is save with us and we won't share with any third
+                &#x26A0; We assure you all the data you share is safe with us and we won't share with any third
                 party.
 
             </div>

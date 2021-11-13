@@ -1,0 +1,176 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<!-- <h4>Create Task</h4> -->
+
+<br>
+<style>
+    .container {
+        margin-left: 240px;
+    }
+
+    .formIndexx {
+        margin-left: 240px;
+
+    }
+
+    .navAss {
+        width: 100vw;
+
+    }
+
+    .ulAss {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+    }
+
+    .liAss {
+        list-style-type: none;
+        margin: 0 2vw;
+    }
+
+    .btn-color {
+        background-color: #2baa73 !important;
+        color: #fff;
+        margin-left: 110px;
+        padding: 15px;
+    }
+
+    .btn-color:hover {
+        background-color: #b37272 !important;
+        color: #fff;
+
+
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+
+
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+
+
+    .navLink {
+        text-decoration: none;
+    }
+
+    i {
+        margin-left: 4px;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    table {
+        background-color: #fff;
+    }
+</style>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="navAss">
+                <ul class="ulAss">
+                    <li class="liAss">
+                        <a class="navLink btn btn-color  mb-5" href="{% url 'teacher_all_assignments' %}">Your Created
+                            Assignments</a>
+                    </li>
+                    {% if assignments|length > 0 %}
+                    <li class="liAss">
+                        <a class="navLink btn btn-color mb-5" href="{% url 'teacher' %}">Students Uploaded
+                            Assignments</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="liAss">
+                        <a class="navLink btn btn-color mb-5" href="{%url 'create_assignment'%}">Create New
+                            Assignment<i class="fas fa-plus"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11">
+
+            {% if assignments|length > 0 %}
+
+            <div class="table-responsive">
+
+                <table class="table table table-bordered table-striped ml-5">
+                    <thead>
+                        <tr class="btn-color_table">
+                            <th>Assignment Name</th>
+                            <th>Assignment Date</th>
+                            <th>Assignment Title</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for assignment in assignments %}
+                        <tr style="background-color: rgb(226, 225, 225);">
+                            <td>@{{assignment.assignment_title}}</td>
+                            <td>@{{assignment.assignment_date}}</td>
+                            <td class="border border-rounded">@{{assignment.assignment_details}}</td>
+                        </tr>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+            You havent Created any Assignment yet. Create your first Assignment by clicking above.
+        </div>
+    </div>
+</div>
+{% endif %}
+<br>
+
+
+
+{% endblock %}

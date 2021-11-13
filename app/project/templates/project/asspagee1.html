@@ -1,0 +1,89 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+<style>
+    .formIndex {
+        margin-left: 220px;
+
+    }
+
+    .container {
+        margin-left: 240px;
+    }
+
+
+    .bg-success {
+        background-color: rgb(134, 218, 134) !important;
+        border-radius: 4px;
+        padding: 3px;
+        font-size: 13px;
+
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .bg-dim {
+
+        background-color: rgb(46, 43, 43);
+    }
+
+    .alert {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+
+
+    .navLink {
+        text-decoration: none;
+    }
+
+    i {
+        margin-left: 4px;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    table {
+        background-color: #fff;
+    }
+</style>
+<!-- {% if assignments|length < 1 %} <span>
+    <h6 class="formIndex">{{mylist}}You Teacher haven't created any assignment yet, Please come back
+        Later!</h6></span>
+    {% else %} -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+               
+                {{form}}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- {% endif %} -->
+
+
+{% endblock %}

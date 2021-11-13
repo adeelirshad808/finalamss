@@ -1,0 +1,126 @@
+{% extends 'project/base.html' %}
+{% block content %}
+
+<style>
+    .formbox {
+        margin-left: 250px !important;
+        color: rgb(134, 218, 134);
+        justify-content: center;
+        justify-content: center;
+        justify-content: center;
+
+
+    }
+
+    .formIndex {
+        margin-left: 220px;
+
+    }
+
+    .container {
+        margin-left: 240px;
+    }
+
+    .containerr {
+        margin-left: 299px;
+    }
+
+
+    .bg-success {
+        background-color: rgb(134, 218, 134) !important;
+        border-radius: 4px;
+        padding: 3px;
+        font-size: 13px;
+
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .bg-dim {
+
+        background-color: rgb(46, 43, 43);
+    }
+
+    .alert {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+
+
+    .navLink {
+        text-decoration: none;
+    }
+
+    i {
+        margin-left: 4px;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    table {
+        background-color: #fff;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10-col-md-10 col-sm-10 col-10">
+            <h1 class="formbox mt-3">Results</h1>
+            <table class="table table  mt-5 table-bordered table-striped ml-5">
+                <thead>
+                    <tr class="btn-color_table">
+                        <th>Date</th>
+                        <th scope="col"> Assignment Title</th>
+                        <th scope="col">Teacher's Name</th>
+                        <th scope="col"> Marks Obtained</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {%for s in submissions %}
+
+                    <tr>
+                        <td>{{s.submission_date}}</td>
+                        <td>{{s.submission_title}}</td>
+                        <td>{{s.submitted_to}}</td>
+                        <td>{{s.marks_obtained}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -7,6 +7,15 @@
 
     }
 
+    .container {
+        margin-left: 240px;
+    }
+
+    .containerr {
+        margin-left: 299px;
+    }
+
+
     .bg-success {
         background-color: rgb(134, 218, 134) !important;
         border-radius: 4px;
@@ -28,45 +37,102 @@
         text-align: center;
         margin-top: 10px;
     }
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+
+
+    .navLink {
+        text-decoration: none;
+    }
+
+    i {
+        margin-left: 4px;
+    }
+
+    .border {
+        border-radius: 14px !important;
+    }
+
+    table {
+        background-color: #fff;
+    }
 </style>
+
 {% if assignments|length < 1 %} <span>
-    <h6 class="formIndex">You Teacher haven't created any assignment yet, Please come back
+    <h6 class="formIndex">{{mylist}}You Teacher haven't created any assignment yet, Please come back
         Later!</h6></span>
     {% else %}
+    <form method="POST" action="{% url 'result' %}">
+        {% csrf_token%}
+        <input type="submit" class=" btn  btn-success mt-3 containerr" value="Result">
+
+    </form>
 
 
     <div class="container formIndex">
         <div class="row">
-            <div class="col-lg-11 col-md-8 col-sm-8 col-8">
-                <table class="table  mt-4 border">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Assignment no</th>
-                            <th scope="col"> Date</th>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+                <table class="table table  mt-5 table-bordered table-striped ml-5">
+                    <thead>
+                        <tr class="btn-color_table">
+                            <th>Date</th>
                             <th scope="col"> Teacher's name</th>
                             <th scope="col"> Title</th>
+                            <th scope="col"> details</th>
                             <th scope="col"> Upload</th>
                             <th scope="col"> Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        {%for assignment in assignments%}
+
+                        {%for assignment in assignments %}
+
                         <tr>
-                            <td>1</td>
                             <td>{{assignment.assignment_date}}</td>
                             <td>{{assignment.assignment_creator}}</td>
                             <td>{{assignment.assignment_title}} </td>
-                            <td><input type="file" name="" id="" placeholder="upload"></td>
-                            <td> <span class="bg-success text-white">Pending </span></td>
+                            <td>{{assignment.assignment_title}} </td>
+                            <td>
+                                <form enctype="multipart/form-data" action="{% url 'assignment_submit' %}"
+                                    method="POST">
+                                    {% csrf_token %}
+
+                                    <button>Click here to upload assignment</button>
+
+                            </td>
+
+                            {% if submission_status %}
+                            <td> <span class="badge badge-success">submitted </span></td>
+                            {% else %}
+                            <td> <span class="badge badge-warning"> Pending </span></td>
+
+                            {% endif %}
                         </tr>
                         {% endfor %}
 
+
                     </tbody>
+
                 </table>
 
             </div>
         </div>
     </div>
+
+
+
 
     {% endif %}
 

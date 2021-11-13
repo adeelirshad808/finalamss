@@ -1,0 +1,75 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+<style>
+    .formIndex {
+        margin-left: 340px;
+        box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.43);
+        -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.43);
+        -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.43);
+        width: 60%;
+
+    }
+
+    .bg-success {
+        background-color: rgb(134, 218, 134) !important;
+        border-radius: 4px;
+        font-size: 13px;
+
+    }
+
+    .container {
+        margin-left: 280px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .bg-dim {
+
+        background-color: rgb(46, 43, 43);
+    }
+
+    .alert {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .btn-color {
+        background-color: #2baa73 !important;
+        color: #fff;
+        margin-left: 110px;
+        padding: 15px;
+    }
+
+    .btn-color:hover {
+        background-color: #b37272 !important;
+        color: #fff;
+
+
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+            <a href="{%url 'index'%}">
+                <button class="btn  btn-color mt-5 mb-5">&larr; Back To Home</button>
+            </a>
+            <h3> Your assignment has been sucessfully uploaded.
+            </h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

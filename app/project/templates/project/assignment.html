@@ -1,5 +1,24 @@
 {% extends 'project/base.html' %}
-hhh
+<style>
+    .container {
+        margin-left: 340px !important;
+    }
+</style>
 {% block content %}
-your assignment has been sucessfully uploaded
-{% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+            <form method="post" enctype="multipart/form-data" style="margin-left: 240px;">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit">
+        </div>
+    </div>
+    {% endblock %}
+
+    <script>
+        var name = "{{user.username}}"
+        console.log(name)
+        document.getElementById('elder').value = name;
+    </script>

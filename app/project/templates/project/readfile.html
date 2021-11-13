@@ -1,0 +1,71 @@
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+
+<br>
+<style>
+    .container {
+        margin-left: 240px;
+    }
+
+    .formIndexx {
+        margin-left: 240px;
+
+    }
+
+    .btn-color {
+        background-color: #2baa73 !important;
+        color: #fff;
+        margin-left: 110px;
+        padding: 15px;
+    }
+
+    .btn-color:hover {
+        background-color: #b37272 !important;
+        color: #fff;
+
+
+    }
+
+    .btn-color-btn {
+        background-color: #bf6565 !important;
+        color: #fff;
+        border: 2px solid #b37272;
+        width: 140px !important;
+        border-radius: 20px;
+
+    }
+
+
+
+
+
+    .btn-color-btn:hover {
+        background-color: #2baa73 !important;
+        border: 2px solid #2baa73;
+        color: #fff;
+
+    }
+
+    .btn-color_table {
+        background-color: #2baa73 !important;
+        color: #fff;
+    }
+</style>
+
+<div class="container">
+    <a href="{%url 'teacher'%}">
+        <button class="btn  btn-color mt-5 mb-5">&larr; Back To Home</button>
+    </a>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+            <p class="border ml-5">{{text }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

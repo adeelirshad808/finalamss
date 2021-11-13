@@ -1,0 +1,162 @@
+{
+    "isQueriesFinished": "false",
+    "sources": [
+        {
+            "link": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+            "count": 9,
+            "percent": 55
+        },
+        {
+            "link": "https://www.parhlo.com/hidden-cameras-found-in-the-walls-of-a-private-karachi-schools-washrooms/",
+            "count": 1,
+            "percent": 8
+        },
+        {
+            "link": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms",
+            "count": 1,
+            "percent": 3
+        }
+    ],
+    "totalQueries": 15,
+    "plagPercent": 67,
+    "paraphrasePercent": 20,
+    "uniquePercent": 33,
+    "excludeURL": null,
+    "details": [
+        {
+            "query": "“Hidden cameras were installed behind a sheet with holes in the area of the washrooms situated with the toilets of girls and boys so that ",
+            "version": 3,
+            "unique": "false",
+            "display": {
+                "url": "https://www.parhlo.com/hidden-cameras-found-in-the-walls-of-a-private-karachi-schools-washrooms/",
+                "des": "1 day ago&nbsp;&#0183;&#32;They found hidden cameras installed in the washroom’s walls. According to an order from the Sindh education department, “Hidden CCTV cameras were installed behind a sheet with holes in the area of the washbasins situated with the toilets of girls and boys/washrooms so that one can easily watch the movements of male and female students and ..."
+            },
+            "paraphrase": "false"
+        },
+        {
+            "query": "one can easily watch the movements of male and female students and staff,” said an office order written by Director General Dr Mansoob Hussain Siddiqui. ",
+            "version": 3,
+            "unique": "false",
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": "1 day ago — "
+            },
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "The school management was directed to appear before Siddiqui but it failed to comply.",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": " the  school  management  was  directed  to  appear  before  siddiqui  but  it  did not appear ."
+            },
+            "paraphrase": "true"
+        },
+        {
+            "query": "Though the letter clearly mentioned the suspension of the school registration on Thursday but, sources disclosed it remained functional on Friday.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "Sources told The Express Tribune that some of the female teachers were already aware of the hidden cameras but were not sure where they had been installed.",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": " sources  told  the  express  tribune  that  some  of  the  female  school teachers  were  already  aware  of  the  hidden  cameras  but  were  not  sure  where  the y were  installed. "
+            },
+            "paraphrase": "true"
+        },
+        {
+            "unique": "false",
+            "query": "âThe team when searched the washrooms did not find anything in first attempt,â a senior official said.",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": " the  team  when  searched  the  washrooms  did  not  find  anything  in  start a  senior  official  said. "
+            },
+            "paraphrase": "true"
+        },
+        {
+            "query": "“However, they were successful the next time after unsealing the sheet pasted in front of cameras,” the official said.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "âAnother camera was also installed in the boysâ washroom in the same manner.",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": "official said. when they unsealed the sheet and found a hidden camera the official said. another camera was also installed in the boys washroom in the same manner. though several complaints have been lodged by parents and teachers"
+            },
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "â\n\nThough several complaints have been lodged by parents and teachers about the private schools in the city but the ",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": "official said. another camera was also installed in the boys washroom in the same manner. though several complaints have been lodged by parents and teachers about the private schools in the city but the education departments officials said that it was the first case"
+            },
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "education departmentâs officials said that it was the first case where cameras were installed in the washrooms. ",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": "been lodged by parents and teachers about the private schools in the city but the education departments officials said that it was the first case where cameras were installed in the washrooms. the experts said that the school managements could install cameras"
+            },
+            "paraphrase": "false"
+        },
+        {
+            "unique": "false",
+            "query": "The experts said that the school managements could install cameras for security and safety purpose of the students and the staff.",
+            "version": 3,
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms?amp=1",
+                "des": "officials said that it was the first case where cameras were installed in the washrooms. the experts said that the school managements could install cameras for security and safety purpose of the students and the staff. but they cannot install cameras in washrooms another officials said."
+            },
+            "paraphrase": "false"
+        },
+        {
+            "query": "“But they cannot install cameras in washrooms,” another officials said.",
+            "version": 3,
+            "unique": "false",
+            "display": {
+                "url": "https://tribune.com.pk/story/2328096/cameras-found-in-school-washrooms",
+                "des": "för 1 dag sedan — "
+            },
+            "paraphrase": "false"
+        },
+        {
+            "query": "Sindh Education Minister Syed Saradr Ali Shah, reacting to the development, said that such measures taken in the name of security will not be tolerated.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "He also requested parents to approach FIA Cyber Crime Circle in case they have any complaint against the school management.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "Reportedly parents, area residents staged a protest against the school management after news of the hidden cameras went viral on social media.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        }
+    ]
+}

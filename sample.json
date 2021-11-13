@@ -1,0 +1,46 @@
+{
+    "isQueriesFinished": "false",
+    "sources": [],
+    "totalQueries": 5,
+    "plagPercent": 0,
+    "paraphrasePercent": 0,
+    "uniquePercent": 100,
+    "excludeURL": null,
+    "details": [
+        {
+            "query": "While visiting Bali has become cliched these days with some many people trying to find their \u201cEat, Pray, Love\u201d experience and chill ",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "out at some expensive yoga retreat, I still find the island to be beautiful, budget friendly, and full of things to do. ",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "The countryside is beautiful, the beaches (outside of Kuta) are picture perfect, there is great hiking, friendly locals, world-class dining, and it\u2019s inexpensive.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "From navigating the crowds to being monkey-savvy, there are a few tricks to getting the best out of a trip to Bali.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        },
+        {
+            "query": "We\u2019ve rounded up 16 top tips to bank for your next visit to the Island of the Gods.",
+            "version": 3,
+            "unique": "true",
+            "display": null,
+            "paraphrase": "false"
+        }
+    ]
+}
